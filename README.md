@@ -14,7 +14,7 @@ Moreover, all the information about each student was held in a column in the "Fa
 
 There were also various bugs with the macros, and getting them to execute properly was difficult.
 
-## The First Solution
+## The First Iteration
 
 I saw this and decided that what the Co-op really needed was a database. No-one on the board, however, had any familiarity with or willingness to learn even basic SQL. It looked like if I was going to solve this, I needed a web app. I had no previous experience at all with web-dev, but after watching a FireShip video on HTMX, I figured I could probably pull it off.
 
@@ -28,13 +28,30 @@ At this point the leader of the board (or some similar title) started getting he
 
 So I took a break from that iteration, and decided to go study some more. By the time I came back, I had learned enough to know that it would be best if that break were permanent, and I dropped the project to start again from scratch.
 
-
 (Here)[https://youtu.be/0scHPvwYvVg] is a screen-recording of me using with the last (semi-)working version of this iteration.
 
-
-## The Second Solution - TODO
-
+If you dare, you can read also the code (here)[https://github.com/jackcooperusesvim/cdb/tree/presentable].
 
 
+## The Second Iteration
 
-Then I discovered templating, and Go’s SQLC library. With these tools I accomplished what is probably my biggest web-dev accomplishment, which is a to-do list BUT… with hand-rolled session auth. I made a significant effort to make sure that it was actually secure. I salted and hashed passwords, used constant time checks, and implemented CSRF protection. I did not think to use rate-limiting to prevent brute-force attacks, but now
+Around this time I had also started taking classes on Boot.dev, which meant that Go was my new favorite shiny toy. It was through this project that I learned about Session Authentication, Cookies, Middleware, Web-server architecture, Routers, Controllers, Templating, SQL Injection, CSRF attacks, XSS attacks, and more.
+
+I used the Echo library for Go to build this, and it was actually the default middlewares on the documentation page which really taught me about web-security. "Oh, this Middleware is supposed to stop CSRF attacks? What on God's green earth is a CSRF attack? Let me look that up."
+
+I learned a lot this way, and through that process I built a simple one-table CRUD app, but with hand-rolled auth. I was and still am very proud of this achievement. The best part, in my opinion, was realizing that every time I re-write this project, it gets written in a similar amount of time.
+
+I had so much fun with this project that I was kind of slacking off at school. So as my parents started questioning my grades, and other things were being added to my plate, I had to drop this. But I left off on a good note. I learned a lot, and I'm proud of this project.
+
+The code for this project can be found (here)[https://github.com/jackcooperusesvim/CoopGo/tree/ee06bb171e04c8f17fb6dd978ae22f4f4c200d59]
+
+## The Current Iteration
+
+I am coming back to this old project because of the Junior Programmer position that is opening at 37 Signals. There is probably no-where I would rather work than 37 Signals, so I decided it was worth ressurecting this old project.
+
+I started with the ORM; designing a schema to fit my problem and figuring out how to express it in ActiveRecord. Having never used an ORM, and hating the thought of ditching my beloved SQL, I was initially resistant, but I am growing to love the combination of low-level transparency and high-level abstraction that ActiveRecord provides.
+
+Then I did some "rails generate"-ing (so addictive), and stumbled upon the new authentication generator. I built family, teacher, and admin models off of the generated model, so now I can begin working on the rest of the project with my structure set in stone. I am starting with the controller for the admin page listing all the families. CSS is also something that I feel under-educated on, so I am going to be learning that as I work with these views.
+
+
+
