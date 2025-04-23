@@ -10,23 +10,21 @@ She explained that she was updating some family information on the Co-op Excel s
 
 The main purpose of this spreadsheet was to generate reports and summaries on who is registered for which class at which time throughout the co-op day. These summaries were posted on walls throughout the co-op and would be the thing you would go to reference if you didn't know where you were going next. These reports were generated through a macro, which sourced data from 3 tables: Grades, Families, and Classes. The primary issue with this system is that because of the way the spreadsheet was designed, if you manually edited data from any table, the reports would generate wrong. Instead, you had to use some macros that the Excel Person wrote to input your data. That data you put in the macro would then be duplicated and copied to several different tables across the entire spreadsheet. There was no single source of truth, and storing and manipulating data felt like writing a database in HTMX (if that were possible).
 
-Moreover, all the information about each student was held in a column in the "Families" table. There was a "Student1" column, a "Student2" column, and so on. So every time the "Co-op Largest Family" record was broken (which happens often at gatherings of Homeschooling Christians), the macros governing the relationship and flow of data in the spreadsheet had to be COMPLETELY RE-WRITTEN.
+Moreover, all the information about each student was held in a column in the "Families" table. There was a "Student1" column, a "Student2" column, and so on. So every time the "Co-op Largest Family" record was broken (which happens often at gatherings of Christian homeschoolers), the macros governing the relationship and flow of data in the spreadsheet had to be COMPLETELY RE-WRITTEN.
 
 There were also various bugs with the macros, and getting them to execute properly was difficult.
 
 ## The First Iteration
 
-I saw this and decided that what the Co-op really needed was a database. No-one on the board, however, had any familiarity with or willingness to learn even basic SQL. It looked like if I was going to solve this, I needed a web app. I had no previous experience at all with web-dev, but after watching a FireShip video on HTMX, I figured I could probably pull it off.
+I saw this and decided that what the Co-op really needed was a database. No-one on the board, however, had any familiarity with or willingness to learn even basic SQL. It looked like if I was going to solve this, I was going to need to turn that app into a website. I had no previous experience at all with web-dev, but after watching a Fireship video on HTMX, I figured I could probably pull it off.
 
-
-The original version was written in Python using Flask as my web-server. To the detriment of that project, I didn't really bother to learn to much about Flask. I saw how you could use some decorators to route requests into functions, and then access that request in the function, and I thought "oh, that is enough to get me going". So having never heard of Templating lanugages, Auth Middleware, innocent little me got to work. I designed a sqlite database schema with some basic relationships, and when I was ready to get into the web stuf, I decided to start with just CRUD-ing the Families table. (Yes, I did have a Students).
+The original version was written in Python using Flask as my web-server. To the detriment of that project, I didn't really bother to learn to much about Flask. I saw how you could use some decorators to route requests into functions, and then access that request in the function, and I thought "oh, that is enough to get me going". So having never heard of Templating languages, Auth Middleware, and a million other important things, innocent little me got to work. I designed a sqlite database schema with some basic relationships, and when I was ready to get into writing the server, I decided to start with just CRUD-ing the Families and Classes table.
 
 I ended up essentially a single file of flask request handlers which manipulated html in the form of raw strings, with a few lines of raw SQLite interspersed throughout. It was a horrible mess, but it (kinda) worked. I was super proud of it.
 
-At this point the leader of the board (or some similar title) started getting her 2 cents in and insisting on scope creep at every opporunity. She wanted payment integration, algorithmic class-swapping so admins wouldn't have to deal with the family requests, online registration, and the list goes on. I was just trying to replace an Excel spreadsheet, and I was working for free. I had just learned what a private key is, and what the S in HTTPS stands for. It was clearly never going to work out, but I though that maybe if I kept working on it myself, I could end up with something which could end up being a useful product in the future. It gave me direction for learning web-development.
+At this point the leader of the board (or some similar title) started getting her 2 cents in and insisting on scope creep at every opporunity. She wanted payment integration, algorithmic class-swapping so admins wouldn't have to deal with the family requests, online registration, and the list goes on. I was just trying to replace an Excel spreadsheet, and I was working for free. I had just learned what a private key is, and after reading one page of Stripe API docs I decided that this was clearly never going to work out. But I also thought that maybe if I kept working on this project myself, I could end up with something marketable by the time I had learned everything. It gave me direction for learning web-development.
 
-
-So I took a break from that iteration, and decided to go study some more. By the time I came back, I had learned enough to know that it would be best if that break were permanent, and I dropped the project to start again from scratch.
+So I took a break from that iteration, and decided to go study some more. By the time I came back, I had learned enough to know that it would be best if I made the break permanent, so I dropped the project to start again from scratch.
 
 [Here](https://youtu.be/0scHPvwYvVg) is a screen-recording of me using with the last (semi-)working version of this iteration.
 
@@ -47,11 +45,10 @@ The code for this project can be found [here](https://github.com/jackcooperusesv
 
 ## The Current Iteration
 
-I am coming back to this old project because of the Junior Programmer position that is opening at 37 Signals. There is probably no-where I would rather work than 37 Signals, so I decided it was worth ressurecting this old project.
+I am coming back to this old project because of the Junior Programmer position that is opening at 37 Signals. There is probably no-where I would rather work than 37 Signals, so I decided it was worth resurrecting this old project to re-write in in Ruby (on Rails). This project is currently in a private git repo, but I am working on documenting my work and making it public right now (to be finished tonight).
 
-I started with the ORM; designing a schema to fit my problem and figuring out how to express it in ActiveRecord. Having never used an ORM, and hating the thought of ditching my beloved SQL, I was initially resistant, but I am growing to love the combination of low-level transparency and high-level abstraction that ActiveRecord provides.
+I started with the ORM; designing a schema to fit my problem and figuring out how to express it in ActiveRecord. Having never used an ORM, and hating the thought of ditching my beloved SQL for some inefficient abstraction for dummies, I was initially resistant, but as I went on I grew to love the combination of low-level transparency and high-level abstraction that ActiveRecord provides.
 
-Then I did some "rails generate"-ing (so addictive), and stumbled upon the new authentication generator. I built family, teacher, and admin models off of the generated model, so now I can begin working on the rest of the project with my structure set in stone. I am starting with the controller for the admin page listing all the families. CSS is also something that I feel under-educated on, so I am going to be learning that as I work with these views.
-
+Then I discovered Rails generators, which just completely flipped my world upside-down. I some "rails generate"-ing  and stumbled upon the new authentication generator. I built family, teacher, and admin models off of the generated model, so now I can begin working on the rest of the project with my structure set in stone. I am starting with the controller for the admin page listing all the families. CSS is also something that I feel under-educated on, so I am going to be learning that as I work with these views.
 
 
