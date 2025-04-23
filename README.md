@@ -28,9 +28,9 @@ At this point the leader of the board (or some similar title) started getting he
 
 So I took a break from that iteration, and decided to go study some more. By the time I came back, I had learned enough to know that it would be best if that break were permanent, and I dropped the project to start again from scratch.
 
-(Here)[https://youtu.be/0scHPvwYvVg] is a screen-recording of me using with the last (semi-)working version of this iteration.
+[Here](https://youtu.be/0scHPvwYvVg) is a screen-recording of me using with the last (semi-)working version of this iteration.
 
-If you dare, you can read also the code (here)[https://github.com/jackcooperusesvim/cdb/tree/presentable].
+If you dare, you can read also the code [here](https://github.com/jackcooperusesvim/cdb/tree/presentable).
 
 
 ## The Second Iteration
@@ -43,7 +43,7 @@ I learned a lot this way, and through that process I built a simple one-table CR
 
 I had so much fun with this project that I was kind of slacking off at school. So as my parents started questioning my grades, and other things were being added to my plate, I had to drop this. But I left off on a good note. I learned a lot, and I'm proud of this project.
 
-The code for this project can be found (here)[https://github.com/jackcooperusesvim/CoopGo/tree/ee06bb171e04c8f17fb6dd978ae22f4f4c200d59]
+The code for this project can be found [here](https://github.com/jackcooperusesvim/CoopGo/tree/ee06bb171e04c8f17fb6dd978ae22f4f4c200d59)
 
 ## The Current Iteration
 
