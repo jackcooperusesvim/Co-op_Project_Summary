@@ -56,3 +56,5 @@ Then I discovered Rails generators, which just completely flipped my world upsid
 The first thing I did was design a database schema. I built out a whole diagram of the final schema and represented it in ActiveRecord, but I wasn't prepared for the complexity of the controller code which my chosen schema required. So I re-drew and shrunk the scope.
 
 Here is my modified schema diagram split by scope. The first scope I am be working on is the Teacher-Assignment-Course scope, which implies the Teacher dashboard.
+
+![Schema Diagram](./EPSON002.png)
