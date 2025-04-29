@@ -51,4 +51,8 @@ I started with the ORM; designing a schema to fit my problem and figuring out ho
 
 Then I discovered Rails generators, which just completely flipped my world upside-down. I some "rails generate"-ing  and stumbled upon the new authentication generator. I built family, teacher, and admin models off of the generated model, so now I can begin working on the rest of the project with my structure set in stone. I am starting with the controller for the admin page listing all the families. CSS is also something that I feel under-educated on, so I am going to be learning that as I work with these views.
 
+### Status
 
+The first thing I did was design a database schema. I built out a whole diagram of the final schema and represented it in ActiveRecord, but I wasn't prepared for the complexity of the controller code which my chosen schema required. So I re-drew and shrunk the scope.
+
+Here is my modified schema diagram split by scope. The first scope I am be working on is the Teacher-Assignment-Course scope, which implies the Teacher dashboard.
